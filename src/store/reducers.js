@@ -1,4 +1,4 @@
-const initialState = { users: [1, 2, 3] };
+const initialState = {};
 
 const reducer = (state = initialState, action = null) => {
   if (action.type === "SET_USER_LIST") {
