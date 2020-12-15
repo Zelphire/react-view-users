@@ -5,11 +5,16 @@ import { useHistory } from "react-router-dom";
 
 const UserDetails = ({ userDetails }) => {
   const history = useHistory();
+
   useEffect(() => {
     if (isUndefined(userDetails)) {
       history.push("/users");
     }
   }, [userDetails, history]);
+
+  const returnBack = () => {
+    history.push("/users");
+  };
   return (
     <>
       <div className="row ">
@@ -20,12 +25,13 @@ const UserDetails = ({ userDetails }) => {
       <div className="card mb-2 ml-2 mt-4 bg-light">
         <div className="card-body text-left">
           <p class="card-text ml-3">
-            <label>Name :</label> <span>{get(userDetails, "name")}</span>
+            <label>Name :</label>{" "}
+            <span className="ml-3">{get(userDetails, "name")}</span>
           </p>
           <br />
           <p class="card-text ml-3">
             <label>Address : </label>
-            <span>
+            <span className="ml-3">
               {get(userDetails, "address.suite")},
               {get(userDetails, "address.street")},
               {get(userDetails, "address.city")},
@@ -34,18 +40,32 @@ const UserDetails = ({ userDetails }) => {
           </p>
           <br />
           <p class="card-text ml-3">
-            <label>Email : </label> <span>{get(userDetails, "email")}</span>
+            <label>Email : </label>{" "}
+            <span className="ml-3">{get(userDetails, "email")}</span>
           </p>
           <br />
           <p class="card-text ml-3">
-            <label>Phone : </label> <span>{get(userDetails, "phone")}</span>
+            <label>Phone : </label>{" "}
+            <span className="ml-3">{get(userDetails, "phone")}</span>
           </p>
           <br />
           <p class="card-text ml-3">
             <label>Company Name :</label>{" "}
-            <span>{get(userDetails, "company.name")}</span>
+            <span className="ml-3">{get(userDetails, "company.name")}</span>
           </p>
           <br />
+        </div>
+        <div class="card-footer ">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-toggle="button"
+            aria-pressed="false"
+            autocomplete="off"
+            onClick={returnBack}
+          >
+            Back
+          </button>
         </div>
       </div>
     </>
