@@ -19,16 +19,11 @@ const UserDetails = ({ userDetails }) => {
     <>
       <div className="row ">
         <div className="col-sm-12 m-2">
-          <h4 className="float-left">User Details</h4>
+          <h4 className="float-left">User Information</h4>
         </div>
       </div>
       <div className="card mb-2 ml-2 mt-4 bg-light">
         <div className="card-body text-left">
-          <p class="card-text ml-3">
-            <label>Name :</label>{" "}
-            <span className="ml-3">{get(userDetails, "name")}</span>
-          </p>
-          <br />
           <p class="card-text ml-3">
             <label>Address : </label>
             <span className="ml-3">
@@ -40,18 +35,32 @@ const UserDetails = ({ userDetails }) => {
           </p>
           <br />
           <p class="card-text ml-3">
-            <label>Email : </label>{" "}
-            <span className="ml-3">{get(userDetails, "email")}</span>
+            <label>Phone : </label>{" "}
+            <span className="ml-3">
+              {get(userDetails, "phone", "unavailable")}
+            </span>
           </p>
           <br />
           <p class="card-text ml-3">
-            <label>Phone : </label>{" "}
-            <span className="ml-3">{get(userDetails, "phone")}</span>
+            <label>Email : </label>{" "}
+            <span className="ml-3">
+              {get(userDetails, "email", "unavailable")}
+            </span>
           </p>
           <br />
+
           <p class="card-text ml-3">
             <label>Company Name :</label>{" "}
-            <span className="ml-3">{get(userDetails, "company.name")}</span>
+            <span className="ml-3">
+              {get(userDetails, "company.name", "unavailable")}
+            </span>
+          </p>
+          <br />
+          <p class="card-text ml-3">
+            <label>Website :</label>{" "}
+            <span className="ml-3">
+              {get(userDetails, "website", "unavailable")}
+            </span>
           </p>
           <br />
         </div>

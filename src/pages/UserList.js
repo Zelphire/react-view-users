@@ -12,6 +12,9 @@ const UserList = ({ setUserList, list, setUserDetails }) => {
   }, [setUserList]);
   return (
     <div className="row">
+      <div className="col-sm-12 m-2">
+        <h4 className="float-left">Users</h4>
+      </div>
       {isArray(list) &&
         list.map((user) => (
           <div className="col-md-12" key={user.id}>
